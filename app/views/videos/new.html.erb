@@ -1,0 +1,15 @@
+<h1>Upload a new video from YT</h1>
+
+<%= form_for @video do |f| %>
+	<p>
+	<%= f.label :link %>
+	<%= f.text_field :link, placeholder: "Paste in a YouTube url you newb"%>
+	</p>
+
+	<p>
+	<%= f.submit %>
+	</p>
+<% end %>
+
+
+<%= link_to 'back', videos_path %>
