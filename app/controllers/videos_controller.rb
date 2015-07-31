@@ -1,6 +1,15 @@
 class VideosController < ApplicationController
 	def index
 		@videos = Video.order('created_at DESC')
+		video = Yt::Video.new url: 'https://www.youtube.com/watch?v=Q8QGdnuWrqU'
+		p video
+		p "* " * 100
+		p video.like_count
+		video_hash = {likes: video.like_count}
+		p video_hash
+		render :json video_hash
+		# binding.pry
+		# to use binding.pry, refresh your page, test your variables using video.methodname
 	end
 
 	def new
