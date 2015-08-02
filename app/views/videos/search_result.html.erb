@@ -1,0 +1,18 @@
+<div class="body-div">
+	<p>hello</p>
+
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video.id %>" frameborder="0" allowfullscreen></iframe>
+
+	<h2><%= @video.title %></h2>
+	<p class="channel">Uploaded by <%= @video.channel_title %>
+	</p>
+	<p class="likes">Likes <%= @video.like_count %> </p>
+	<p class="dislikes">Dislikes <%= @video.dislike_count %></p>
+
+	<%= link_to 'back', url_for(:back) %>
+
+
+
+
+
+</div>

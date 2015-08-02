@@ -1,0 +1,12 @@
+<div class="body-div">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video.yt_id %>" frameborder="0" allowfullscreen></iframe>
+
+	<h2><%= @video.title %></h2>
+	<p class="channel">Uploaded by <%= @video.channel %>
+	</p>
+	<p class="likes">Likes <%= @video.likes %> </p>
+	<p class="dislikes">Dislikes <%= @video.dislikes %></p>
+
+	<%= link_to "Back to #{@video.category.name.capitalize} tutorials", category_path(@video.category) %>
+</div>
+
