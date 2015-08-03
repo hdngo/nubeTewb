@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
+
 //= require_tree .
+//= require_self
 
 
 $(document).ready(function(){
@@ -32,5 +34,13 @@ $(document).ready(function(){
 		console.log(data)
 	})
 
-	$('')
 })
+
+
+
+// React.render(
+// 		<Taco />,
+// 		document.getElementById('timer')
+// 		);
+
+

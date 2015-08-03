@@ -8,7 +8,7 @@
 	<p class="dislikes">Dislikes <%= @video.dislikes %></p>
 	<p class="category">Listed under <%= link_to "#{@video.category.name.capitalize}", category_path(@video.category) %></p>
 	
-	<%= link_to 'edit', edit_category_video_path(@video.category, @video)%>
+	
 	
 	<%= link_to "Back to #{@video.category.name.capitalize} tutorials", category_path(@video.category) %>
 	</p>

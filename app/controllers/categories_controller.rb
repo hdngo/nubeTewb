@@ -2,6 +2,9 @@ class CategoriesController < ApplicationController
 	protect_from_forgery
 	def index
 		@categories = Category.all
+			p "*" * 100
+			p "you made it here"
+			# render json: @categories
 	end
 
 

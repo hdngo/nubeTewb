@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>NubeTewb</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+	<title>NubeTewb</title>
+	<%= stylesheet_link_tag 'application', media: 'all' %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= form_tag("/search", method: "get", class: "search-bar") do %>
-	  <%= label_tag(:q, "Search for:") %>
-	  <%= text_field_tag(:q) %>
-	  <%= submit_tag("Search") %>
+	<%= form_tag("/search", method: "get", class: "search-bar") do %>
+	<%= label_tag(:q, "Search for:") %>
+	<%= text_field_tag(:q) %>
+	<%= submit_tag("Search") %>
 	<% end %>
 
 
+	<div id="timer">
+	</div>
+	<div id="category-container">
+	</div>
+	
 
-<%= yield %>
+	<%= yield %>
 
-
+	<%= javascript_include_tag 'application' %>
 </body>
 </html>
