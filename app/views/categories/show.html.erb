@@ -6,13 +6,13 @@
 	</p>
 
 
-	<% if @videos.any? %>
+	<% if @category.videos.any? %>
 		<div class="video-gallery">
 			<!-- in_groups_of is a Rails method that divides the array of videos into group of 3 elements, the if video condition is required bc if theres vacancies, the last element will be nil -->
 			<!-- took out in_groups_of because i didn't see how it applied to my page -->
 			<!-- change -->
 
-			<% @videos.each do |video| %>
+			<% @category.videos.each do |video| %>
 				<% if video %>
 					<div>
 						<%= link_to image_tag(video.thumbnail), category_video_path(video.category,video), class: 'video-thumb'%>

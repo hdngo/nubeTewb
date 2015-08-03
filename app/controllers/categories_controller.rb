@@ -4,7 +4,9 @@ class CategoriesController < ApplicationController
 		@categories = Category.all
 			p "*" * 100
 			p "you made it here"
-			# render json: @categories
+			if request.xhr?
+				render json: @categories
+			end
 	end
 
 
@@ -14,7 +16,11 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
-		@videos = @category.videos
+		# @videos = @category.videos
+		if request.xhr?
+			p "you made it here dude"
+			render json: @category.videos
+		end
 	end
 
 	def destroy

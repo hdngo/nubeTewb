@@ -1,6 +1,9 @@
 //= require jquery
 //= require jquery_ujs
 
+//= require react
+//= require react_ujs
+//= require_tree ./components
 //= require_tree .
 //= require_self
 
@@ -38,9 +41,31 @@ $(document).ready(function(){
 
 
 
-// React.render(
-// 		<Taco />,
-// 		document.getElementById('timer')
-// 		);
+var App = React.createClass({
+	request: function(url, method, data){
+		return new Promise(function(resolve, reject){
+			var request = $.ajax({
+				url: url,
+				method: method,
+				data: data,
+				dataType: 'json'
+			});
+			request.done(function(serverData){
+				resolve(serverData);
+			});
+			request.fail(function(serverData){
+				reject(serverData);
+			});
+	  })
+	},
+	render: function(){
+		return (
+			<div>
+			<SearchBar />
+      <CategoryBox request={this.request }/>
+      </div>
+		);
+	}
+});
 
-
+React.render(<App />, document.body);

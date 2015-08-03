@@ -1,21 +1,23 @@
 Rails.application.routes.draw do
 
-    # ACCEPTS_JSON = lambda {|request| request.accepts.include?(:json)}
-    # scope constraints: ACCEPTS_JSON do
-    # resources :videos 
-    resources :categories do
-      resources :videos
+    ACCEPTS_JSON = lambda {|request| request.accepts.include?(:json)}
+    
+    scope constraints: ACCEPTS_JSON do
+      resources :categories do
+        resources :videos
+      end
+      resources :videos, only: [:create]
+      get '/search', to: 'videos#search'
+
+      get '/search/result', to: 'videos#search_result'
     end
-    resources :videos, only: [:create]
 
     
     # resources :videos, only: [:create]
 
 
-    get '/search', to: 'videos#search'
-
-    get '/search/result', to: 'videos#search_result'
-
+    
+  get '*path', to: 'categories#index'
   root to: 'categories#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

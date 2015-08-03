@@ -8,6 +8,7 @@ gem 'yt', '~> 0.25.4'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'rails-api'
+gem 'react-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
