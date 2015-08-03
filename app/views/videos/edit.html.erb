@@ -1,3 +1,4 @@
+<h1> edit your video </h1>
 <div class="body-div">
 	<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @video.yt_id %>" frameborder="0" allowfullscreen></iframe>
 
@@ -7,8 +8,14 @@
 	<p class="likes">Likes <%= @video.likes %> </p>
 	<p class="dislikes">Dislikes <%= @video.dislikes %></p>
 	<p class="category">Listed under <%= link_to "#{@video.category.name.capitalize}", category_path(@video.category) %></p>
+
+	<%= form_for [@video.category, @video], method: :patch do |f|  %>
+	<%= f.label :category %>
+	<%= f.collection_select :category_id, Category.all, :id, :name %>
+	<%= f.submit %>
+	<% end %>
 	
-	<%= link_to 'edit', edit_category_video_path(@video.category, @video)%>
+	<%= link_to 'cancel', category_video_path(@video.category, @video)%>
 	
 	<%= link_to "Back to #{@video.category.name.capitalize} tutorials", category_path(@video.category) %>
 	</p>

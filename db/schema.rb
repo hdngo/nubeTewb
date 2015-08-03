@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20150801210318) do
     t.string   "title"
     t.string   "channel"
     t.text     "description"
-    t.string   "category"
     t.integer  "likes"
     t.integer  "dislikes"
     t.integer  "category_id"

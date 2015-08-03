@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resources :categories do
       resources :videos
     end
+    # resources :videos, only: [:create]
+
+    
+    post '/categories/:category_id/videos/:id', to: 'videos#destroy', as: :destroy
+    # resources :videos, only: [:create]
+
 
     get '/search', to: 'videos#search'
 

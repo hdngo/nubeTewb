@@ -1,16 +1,11 @@
 <div class="body-div">
-	<%= form_tag("/search", method: "get") do %>
-	  <%= label_tag(:q, "Search for:") %>
-	  <%= text_field_tag(:q) %>
-	  <%= submit_tag("Search") %>
-	<% end %>
-
-
 	<ul>
 	<% @categories.each do |category| %>
 			<li>
 		<%= link_to "#{category.name}", category_path(category) %>
 			</li>
+			<%= link_to 'edit', edit_category_path(category) %>
+			
 	<% end %>
 	</ul>
 </div>

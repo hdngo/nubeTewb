@@ -9,9 +9,15 @@
 	<p class="likes">Likes <%= @video.like_count %> </p>
 	<p class="dislikes">Dislikes <%= @video.dislike_count %></p>
 
+<%= form_for :video, url: videos_path do |f| %>
+<%= f.hidden_field :yt_vid_id, :value => @video.id %>
+<%= f.label :category %>
+<%= f.collection_select :category_id, @categories, :id, :name %>
+<%= f.submit value: "Add video" %>
+<% end %>
+	
+
 	<%= link_to 'back', url_for(:back) %>
-
-
 
 
 

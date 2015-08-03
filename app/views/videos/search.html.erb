@@ -7,8 +7,8 @@
 	<% if @video_results %>
 		<% @video_results.each do |video_result| %>
 			<div>
-				<%= link_to image_tag(video_result.thumbnail_url), "#{video_result.id}", target: '_blank', class: 'video-thumb' %>
-				<p><%= link_to "#{truncate(video_result.title)}", "#{video_result.id}", class: 'video-url' %></p>
+				<%= link_to image_tag(video_result.thumbnail_url), "#{video_result.id}", target: '_blank', class: 'result-video-thumb' %>
+				<p><%= link_to "#{truncate(video_result.title)}", "#{video_result.id}", class: 'result-video-url' %></p>
 			</div>
 		<% end %>
 	<% end %>
