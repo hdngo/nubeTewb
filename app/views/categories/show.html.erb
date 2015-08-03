@@ -17,7 +17,6 @@
 					<div>
 						<%= link_to image_tag(video.thumbnail), category_video_path(video.category,video), class: 'video-thumb'%>
 						<p><%= link_to "#{truncate(video.title)}", category_video_path(video.category,video) %></p>
-						<%= link_to 'delete', destroy_path(video.category, video), method: :delete%>
 					</div>
 				<% end %>
 			<% end %>

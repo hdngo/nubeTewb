@@ -31,4 +31,6 @@ $(document).ready(function(){
 		var data = $(this).attr('href');
 		console.log(data)
 	})
+
+	$('')
 })

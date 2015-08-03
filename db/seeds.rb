@@ -29,13 +29,12 @@
 
 search_videos = Yt::Collections::Videos.new
 	Category.create(name: "popping")
-	@popping_tutorials = search_videos.where(q:'popping dance tutorial')
-	# @popping_tutorials.each do |popping_tutorial|
-	# selected_video_data = {id: popping_tutorial.id, thumbnail: popping_tutorial.thumbnail_url, title: popping_tutorial.title, description: popping_tutorial.description, channel: popping_tutorial.channel_title, likes: popping_tutorial.like_count, dislikes: popping_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "popping", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@popping= Category.find(1)
+	@popping_tutorials = search_videos.where(q:'popping dance tutorial', order: 'relevance')
+	@popping_tutorials.each do |popping_tutorial|
+	selected_video_data = {id: popping_tutorial.id, thumbnail: popping_tutorial.thumbnail_url, title: popping_tutorial.title, description: popping_tutorial.description, channel: popping_tutorial.channel_title, likes: popping_tutorial.like_count, dislikes: popping_tutorial.dislike_count}
+	@popping.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
+	end
 	################################ 
 	Category.create(name: "housing")
 	@housing = Category.find(2)
@@ -48,137 +47,111 @@ search_videos = Yt::Collections::Videos.new
 
 	################################
 	Category.create(name: "locking")
-	# @locking_tutorials = search_videos.where(q:'locking dance tutorial')
-	# @locking_tutorials.each do |locking_tutorial|
-	# selected_video_data = {id: locking_tutorial.id, thumbnail: locking_tutorial.thumbnail_url, title: locking_tutorial.title, description: locking_tutorial.description, channel: locking_tutorial.channel_title, likes: locking_tutorial.like_count, dislikes: locking_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "locking", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@locking = Category.find(3)
+	@locking_tutorials = search_videos.where(q:'locking dance tutorial', order: 'relevance')
+	@locking_tutorials.each do |locking_tutorial|
+	selected_video_data = {id: locking_tutorial.id, thumbnail: locking_tutorial.thumbnail_url, title: locking_tutorial.title, description: locking_tutorial.description, channel: locking_tutorial.channel_title, likes: locking_tutorial.like_count, dislikes: locking_tutorial.dislike_count}
+	@locking.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
+	end
 
 
 	################################
 	Category.create(name: "waacking")
-	# @waacking_tutorials = search_videos.where(q:'waacking dance tutorial')
-	# @waacking_tutorials.each do |waacking_tutorial|
-	# 	selected_video_data = {id: waacking_tutorial.id, thumbnail: waacking_tutorial.thumbnail_url, title: waacking_tutorial.title, description: waacking_tutorial.description, channel: waacking_tutorial.channel_title, likes: waacking_tutorial.like_count, dislikes: waacking_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "waacking", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@waacking = Category.find(4)
+	@waacking_tutorials = search_videos.where(q:'waacking dance tutorial', order: 'relevance')
+	@waacking_tutorials.each do |waacking_tutorial|
+	selected_video_data = {id: waacking_tutorial.id, thumbnail: waacking_tutorial.thumbnail_url, title: waacking_tutorial.title, description: waacking_tutorial.description, channel: waacking_tutorial.channel_title, likes: waacking_tutorial.like_count, dislikes: waacking_tutorial.dislike_count}
+	@waacking.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 
 	################################
 	Category.create(name: "breaking")
-	# @breakdance_tutorials = search_videos.where(q: 'breakdance tutorial')
-	# @breakdance_tutorials.each do |breakdance_tutorial|
-	# 	selected_video_data = {id: breakdance_tutorial.id, thumbnail: breakdance_tutorial.thumbnail_url, title: breakdance_tutorial.title, description: breakdance_tutorial.description, channel: breakdance_tutorial.channel_title, likes: breakdance_tutorial.like_count, dislikes: breakdance_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "breaking", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@breaking = Category.find(5)
+	@breaking_tutorials = search_videos.where(q:'breaking dance tutorial', order: 'relevance')
+	@breaking_tutorials.each do |breaking_tutorial|
+	selected_video_data = {id: breaking_tutorial.id, thumbnail: breaking_tutorial.thumbnail_url, title: breaking_tutorial.title, description: breaking_tutorial.description, channel: breaking_tutorial.channel_title, likes: breaking_tutorial.like_count, dislikes: breaking_tutorial.dislike_count}
+	@breaking.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "vogueing")
-	# @vogue_tutorials = search_videos.where(q:'vogue dance tutorial')
-	# @vogue_tutorials.each do |vogue_tutorial|
-	# 	selected_video_data = {id: vogue_tutorial.id, thumbnail: vogue_tutorial.thumbnail_url, title: vogue_tutorial.title, description: vogue_tutorial.description, channel: vogue_tutorial.channel_title, likes: vogue_tutorial.like_count, dislikes: vogue_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "vogueing", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@vogueing = Category.find(6)
+	@vogueing_tutorials = search_videos.where(q:'vogueing dance tutorial', order: 'relevance')
+	@vogueing_tutorials.each do |vogueing_tutorial|
+	selected_video_data = {id: vogueing_tutorial.id, thumbnail: vogueing_tutorial.thumbnail_url, title: vogueing_tutorial.title, description: vogueing_tutorial.description, channel: vogueing_tutorial.channel_title, likes: vogueing_tutorial.like_count, dislikes: vogueing_tutorial.dislike_count}
+	@vogueing.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "krumping")
-	# @krump_tutorials = search_videos.where(q:'krump dance tutorial')
-	# @krump_tutorials.each do |krump_tutorial|
-	# 	selected_video_data = {id: krump_tutorial.id, thumbnail: krump_tutorial.thumbnail_url, title: krump_tutorial.title, description: krump_tutorial.description, channel: krump_tutorial.channel_title, likes: krump_tutorial.like_count, dislikes: krump_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "krumping", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@krumping = Category.find(7)
+	@krumping_tutorials = search_videos.where(q:'krumping dance tutorial', order: 'relevance')
+	@krumping_tutorials.each do |krumping_tutorial|
+	selected_video_data = {id: krumping_tutorial.id, thumbnail: krumping_tutorial.thumbnail_url, title: krumping_tutorial.title, description: krumping_tutorial.description, channel: krumping_tutorial.channel_title, likes: krumping_tutorial.like_count, dislikes: krumping_tutorial.dislike_count}
+	@krumping.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 
 	################################
 	Category.create(name: "hiphop")
-	# @hiphop_tutorials = search_videos.where(q:'hiphop dance tutorial')
-	# @hiphop_tutorials.each do |hiphop_tutorial|
-	# selected_video_data = {id: hiphop_tutorial.id, thumbnail: hiphop_tutorial.thumbnail_url, title: hiphop_tutorial.title, description: hiphop_tutorial.description, channel: hiphop_tutorial.channel_title, likes: hiphop_tutorial.like_count, dislikes: hiphop_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "hiphop", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@hiphop = Category.find(8)
+	@hiphop_tutorials = search_videos.where(q:'hiphop dance tutorial', order: 'relevance')
+	@hiphop_tutorials.each do |hiphop_tutorial|
+	selected_video_data = {id: hiphop_tutorial.id, thumbnail: hiphop_tutorial.thumbnail_url, title: hiphop_tutorial.title, description: hiphop_tutorial.description, channel: hiphop_tutorial.channel_title, likes: hiphop_tutorial.like_count, dislikes: hiphop_tutorial.dislike_count}
+	@hiphop.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "swing")
-	# @swing_tutorials = search_videos.where(q:'swing dance tutorial')
-	# @swing_tutorials.each do |swing_tutorial|
-	# 	selected_video_data = {id: swing_tutorial.id, thumbnail: swing_tutorial.thumbnail_url, title: swing_tutorial.title, description: swing_tutorial.description, channel: swing_tutorial.channel_title, likes: swing_tutorial.like_count, dislikes: swing_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "swing", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@swing = Category.find(9)
+	@swing_tutorials = search_videos.where(q:'swing dance tutorial', order: 'relevance')
+	@swing_tutorials.each do |swing_tutorial|
+	selected_video_data = {id: swing_tutorial.id, thumbnail: swing_tutorial.thumbnail_url, title: swing_tutorial.title, description: swing_tutorial.description, channel: swing_tutorial.channel_title, likes: swing_tutorial.like_count, dislikes: swing_tutorial.dislike_count}
+	@swing.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "salsa")
-	# @salsa_tutorials = search_videos.where(q:'salsa dance tutorial')
-	# @salsa_tutorials.each do |salsa_tutorial|
-	# selected_video_data = {id: salsa_tutorial.id, thumbnail: salsa_tutorial.thumbnail_url, title: salsa_tutorial.title, description: salsa_tutorial.description, channel: salsa_tutorial.channel_title, likes: salsa_tutorial.like_count, dislikes: salsa_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "salsa", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@salsa = Category.find(10)
+	@salsa_tutorials = search_videos.where(q:'salsa dance tutorial', order: 'relevance')
+	@salsa_tutorials.each do |salsa_tutorial|
+	selected_video_data = {id: salsa_tutorial.id, thumbnail: salsa_tutorial.thumbnail_url, title: salsa_tutorial.title, description: salsa_tutorial.description, channel: salsa_tutorial.channel_title, likes: salsa_tutorial.like_count, dislikes: salsa_tutorial.dislike_count}
+	@salsa.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "tango")
-	# @tango_tutorials = search_videos.where(q:'tango dance tutorial')
-	# @tango_tutorials.each do |tango_tutorial|
-	# 	selected_video_data = {id: tango_tutorial.id, thumbnail: tango_tutorial.thumbnail_url, title: tango_tutorial.title, description: tango_tutorial.description, channel: tango_tutorial.channel_title, likes: tango_tutorial.like_count, dislikes: tango_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "tango", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@tango = Category.find(11)
+	@tango_tutorials = search_videos.where(q:'tango dance tutorial', order: 'relevance')
+	@tango_tutorials.each do |tango_tutorial|
+	selected_video_data = {id: tango_tutorial.id, thumbnail: tango_tutorial.thumbnail_url, title: tango_tutorial.title, description: tango_tutorial.description, channel: tango_tutorial.channel_title, likes: tango_tutorial.like_count, dislikes: tango_tutorial.dislike_count}
+	@tango.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "ballet")
-	# @ballet_tutorials = search_videos.where(q:'ballet dance tutorial')
-	# @ballet_tutorials.each do |ballet_tutorial|
-	# selected_video_data = {id: ballet_tutorial.id, thumbnail: ballet_tutorial.thumbnail_url, title: ballet_tutorial.title, description: ballet_tutorial.description, channel: ballet_tutorial.channel_title, likes: ballet_tutorial.like_count, dislikes: ballet_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "ballet", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end	
+	@ballet = Category.find(12)
+	@ballet_tutorials = search_videos.where(q:'ballet dance tutorial', order: 'relevance')
+	@ballet_tutorials.each do |ballet_tutorial|
+	selected_video_data = {id: ballet_tutorial.id, thumbnail: ballet_tutorial.thumbnail_url, title: ballet_tutorial.title, description: ballet_tutorial.description, channel: ballet_tutorial.channel_title, likes: ballet_tutorial.like_count, dislikes: ballet_tutorial.dislike_count}
+	@ballet.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "tap")
-	# @tap_tutorials = search_videos.where(q:'tap dance tutorial')
-	# @tap_tutorials.each do |tap_tutorial|
-	# 	selected_video_data = {id: tap_tutorial.id, thumbnail: tap_tutorial.thumbnail_url, title: tap_tutorial.title, description: tap_tutorial.description, channel: tap_tutorial.channel_title, likes: tap_tutorial.like_count, dislikes: tap_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "tap", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@tap = Category.find(13)
+	@tap_tutorials = search_videos.where(q:'tap dance tutorial', order: 'relevance')
+	@tap_tutorials.each do |tap_tutorial|
+	selected_video_data = {id: tap_tutorial.id, thumbnail: tap_tutorial.thumbnail_url, title: tap_tutorial.title, description: tap_tutorial.description, channel: tap_tutorial.channel_title, likes: tap_tutorial.like_count, dislikes: tap_tutorial.dislike_count}
+	@tap.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "mj")
-	# @mj_tutorials = search_videos.where(q:'michael jackson dance tutorial')
-	# @mj_tutorials.each do |mj_tutorial|
-	# 	selected_video_data = {id: mj_tutorial.id, thumbnail: mj_tutorial.thumbnail_url, title: mj_tutorial.title, description: mj_tutorial.description, channel: mj_tutorial.channel_title, likes: mj_tutorial.like_count, dislikes: mj_tutorial.dislike_count}
-	# Video.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "mj", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes])
-	# end
+	@mj = Category.find(14)
+	@mj_tutorials = search_videos.where(q:'mj dance tutorial', order: 'relevance')
+	@mj_tutorials.each do |mj_tutorial|
+	selected_video_data = {id: mj_tutorial.id, thumbnail: mj_tutorial.thumbnail_url, title: mj_tutorial.title, description: mj_tutorial.description, channel: mj_tutorial.channel_title, likes: mj_tutorial.like_count, dislikes: mj_tutorial.dislike_count}
+	@mj.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 	Category.create(name: "funny")
-	# @funny = Category.find_by(name: "funny")
-	# @funny_tutorials = search_videos.where(q: 'funny dance tutorial')
-	# @funny_tutorials.each do |funny_tutorial|
-	# 	selected_video_data = {id: funny_tutorial.id, thumbnail: funny_tutorial.thumbnail_url, title: funny_tutorial.title, description: funny_tutorial.description, channel: funny_tutorial.channel_title, likes: funny_tutorial.like_count, dislikes: funny_tutorial.dislike_count}
-	# @funny.videos.create( link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}",thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[
-	# 	:description], category: "funny", likes: selected_video_data[:likes
-	# 		], dislikes: selected_video_data[:dislikes], category_id: 15)
-	# end
+	@funny = Category.find(15)
+	@funny_tutorials = search_videos.where(q:'funny dance tutorial', order: 'relevance')
+	@funny_tutorials.each do |funny_tutorial|
+	selected_video_data = {id: funny_tutorial.id, thumbnail: funny_tutorial.thumbnail_url, title: funny_tutorial.title, description: funny_tutorial.description, channel: funny_tutorial.channel_title, likes: funny_tutorial.like_count, dislikes: funny_tutorial.dislike_count}
+	@funny.videos.create(yt_id: "#{selected_video_data[:id]}", link: "https://www.youtube.com/watch?v=#{selected_video_data[:id]}", thumbnail: selected_video_data[:thumbnail], title: selected_video_data[:title], channel: selected_video_data[:channel], description: selected_video_data[:description], likes: selected_video_data[:likes], dislikes: selected_video_data[:dislikes])
 
 	################################
 

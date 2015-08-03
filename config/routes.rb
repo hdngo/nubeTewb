@@ -6,10 +6,9 @@ Rails.application.routes.draw do
     resources :categories do
       resources :videos
     end
-    # resources :videos, only: [:create]
+    resources :videos, only: [:create]
 
     
-    post '/categories/:category_id/videos/:id', to: 'videos#destroy', as: :destroy
     # resources :videos, only: [:create]
 
 
@@ -17,8 +16,7 @@ Rails.application.routes.draw do
 
     get '/search/result', to: 'videos#search_result'
 
-  # end
-  root to: 'videos#index'
+  root to: 'categories#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
