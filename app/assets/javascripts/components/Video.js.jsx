@@ -1,7 +1,21 @@
 var Video = React.createClass({
 	render: function(){
-		return(
+		if(!this.props.channel){
+			if(this.props.categories){
+			return(
 			<div class="body-div">
+				<iframe width="560" height="315" src={"https://www.youtube.com/embed/" + this.props.ytId } frameborder="0" allowfullscreen></iframe>
+				<AddVideoForm categories={this.props.categories}/>
+			</div>
+		)
+		}
+		
+		}
+
+		else{
+			return(
+			<div class="body-div">
+			<p></p>
 				<iframe width="560" height="315" src={"https://www.youtube.com/embed/" + this.props.ytId } frameborder="0" allowfullscreen></iframe>
 
 				<h2>{this.props.title}</h2>
@@ -12,11 +26,13 @@ var Video = React.createClass({
 				<h4>Description:</h4>
 				<p>{this.props.description}</p>
 
-					
+
 				<BackLink link='/categories' text="Back to Categories" />	
 
 			</div>
 		)
+		}
+
 	}
 })
 

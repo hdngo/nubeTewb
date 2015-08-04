@@ -79,11 +79,16 @@ class VideosController < ApplicationController
 	def search_result
 		p "you made it to the route"
 		p "still here"
+
 		@categories = Category.order(:name)
 		@video = Yt::Video.new id: params[:vid_id]
 		# @video_id = params[:vid_id]
-		
-		render template: "videos/search_result.html.erb", layout: false
+		# @video_data = {yt_id: @video.id, title: @video.title, channel: @video.channel_title, likes: @video.like_count, dislikes: @video.dislike_count, description: @video.description}
+		if request.xhr?
+			p "hello?"
+			render json: {video: @video, categories: @categories}
+		end
+		# render template: "videos/search_result.html.erb", layout: false
 	end
 
 
