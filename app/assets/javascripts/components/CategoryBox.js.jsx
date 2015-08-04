@@ -99,7 +99,7 @@ var CategoryBox = React.createClass({
 			return (
 				// <div> {this.state.video.title} 
 				<div>
-				<Video ytId={this.state.video.yt_id} title={this.state.video.title} likes={this.state.video.likes} dislikes={this.state.video.dislikes} categoryId={this.state.videoCategory.id} category={this.state.videoCategory.name} />
+				<Video ytId={this.state.video.yt_id} title={this.state.video.title} likes={this.state.video.likes} channel={this.state.video.channel} description={this.state.video.description} dislikes={this.state.video.dislikes} categoryId={this.state.videoCategory.id} category={this.state.videoCategory.name} />
 				</div>
 				// would like to know if i can simply pass in an object rather than extract each individual attribute and have so many props..
 				)
