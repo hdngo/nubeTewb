@@ -60,9 +60,17 @@ class VideosController < ApplicationController
 	end
 
 	def search
+		p params
 		@search_query = params[:q]
 		search_videos = Yt::Collections::Videos.new
-		@video_results = search_videos.where(q: @search_query, order: 'relevance')
+		@video_results = search_videos.where(q: @search_query, order: 'relevance').first(200)
+		@video_results.each do |result|
+			p result.channel_title
+		end
+
+		if request.xhr?
+			render json: @video_results
+		end
 	end
 
 	def search_result

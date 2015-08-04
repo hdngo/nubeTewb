@@ -19,7 +19,8 @@ class CategoriesController < ApplicationController
 		# @videos = @category.videos
 		if request.xhr?
 			p "you made it here dude"
-			render json: @category.videos
+			# render json: @category.videos
+			render json: {category: @category, videos: @category.videos}
 		end
 	end
 

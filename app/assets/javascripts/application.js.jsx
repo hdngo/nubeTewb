@@ -61,7 +61,7 @@ var App = React.createClass({
 	render: function(){
 		return (
 			<div>
-			<SearchBar />
+			<SearchBar onSubmit={this.handleSearch}/>
       <CategoryBox request={this.request }/>
       </div>
 		);

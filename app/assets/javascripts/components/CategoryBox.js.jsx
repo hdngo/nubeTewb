@@ -1,30 +1,31 @@
 var CategoryBox = React.createClass({
 	showCategory: function(e){
 		e.preventDefault();
-		console.log("hello")
-		//when a category link is clicked, set the category state to be that category's id
-		this.setState({category: e.target.id});
-		console.log(e.target.id)
-		console.log(e.target.href)
 		var path = e.target.href;
-		var request = $.ajax({
+		
+		var localCategory = this;
+
+		var categoryRequest = $.ajax({
 			url: path,
-			type: 'get',
+			method: 'get',
 			dataType: 'json'
 		});
-		request.done(function(response){
-			console.log('sup');
-			console.log(response)
+
+		categoryRequest.done(function(response){
+			localCategory.setState({
+				categoryId: response.category.id,
+				videoIndex: response.videos
+			});
 		});
-		request.fail(function(response){
-			console.log('eh')
-		})
+		categoryRequest.fail(function(response){
+			console.log("You are a good person, but failed to ajax")
+		});
 	},
   getInitialState: function(){
   	return {
   		index: [],
-  		category: null,
-  		page: null
+  		videoIndex:[],
+  		categoryId: null
   	}
   },
 
@@ -42,17 +43,22 @@ var CategoryBox = React.createClass({
 		})
 	},
 	render: function() {
-		if(this.state.category === null){
-			var Content = this.state.index.map(function(item,index){
-      return <li key={item.id}><a href={'/categories/'+item.id} id={item.id} onClick={this.showCategory}>{item.name}</a></li>
+		if(this.state.categoryId === null){
+		var List = this.state.index.map(function(item,index){
+      return <li key={item.id}><a key={"category"+item.id}href={'/categories/'+item.id} id={item.id} onClick={this.showCategory}>{item.name}</a></li>
 		}.bind(this));
 		}
-		else if(this.state.category){
-			var Content = "hello";
+		else{
+			var List = this.state.videoIndex.map(function(video, index){
+				return <div className="video-thumb">
+					<a key={video.id} href={'/categories/'+video.category_id+'/videos/'+video.id}><img key={"vid"+video.id+"Img"} src={video.thumbnail} alt="video image" /></a>
+
+					<a key={"vid"+video.id+"Title"} href={'/categories/'+video.category_id+'/videos/'+video.id}><p>{video.title.substring(0,20)+"..."}</p></a>
+				</div>
+			})
 		}
-		
 		return (
-			<div>{Content}</div>
+			<div>{List}</div>
 		);
 	}
 });
