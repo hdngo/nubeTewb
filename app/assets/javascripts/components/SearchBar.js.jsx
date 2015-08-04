@@ -48,6 +48,7 @@ var SearchBar = React.createClass({
 		return (
 
 			<div>
+				<BackLink link='/categories' text="Back to Categories" />
 				<form action="/search" className="search-bar" onSubmit={this.handleSearch}>
 					<input type="text" name="q"  ref="q"/>
 					<input type="submit" />

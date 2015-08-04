@@ -37,6 +37,9 @@ class VideosController < ApplicationController
 	def show
 		@category = Category.find(params[:category_id])
 		@video = Video.find(params[:id])
+		if request.xhr?
+			render json: {category: @category, video: @video}
+		end
 	end
 
 

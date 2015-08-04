@@ -1,4 +1,22 @@
 var CategoryBox = React.createClass({
+	showVideo: function(e){
+		e.preventDefault();
+		var localVideo = this;
+		var path = e.target.parentElement.href;
+		var request = $.ajax({
+			url: path,
+			method: 'get',
+			dataType: 'json'
+		});
+		request.done(function(response){
+			console.log('hello')
+			console.log(response.video)
+			localVideo.setState({video: response.video, videoCategory: response.category})
+		});
+		request.fail(function(response){
+			console.log('goodye')
+		})
+	},
 	showCategory: function(e){
 		e.preventDefault();
 		var path = e.target.href;
@@ -21,11 +39,14 @@ var CategoryBox = React.createClass({
 			console.log("You are a good person, but failed to ajax")
 		});
 	},
+
   getInitialState: function(){
   	return {
   		index: [],
   		videoIndex:[],
-  		categoryId: null
+  		categoryId: null,
+  		video: null,
+  		videoCategory: null
   	}
   },
 
@@ -42,23 +63,46 @@ var CategoryBox = React.createClass({
 			        });
 		})
 	},
+	
 	render: function() {
+		if(this.state.video === null){
 		if(this.state.categoryId === null){
-		var List = this.state.index.map(function(item,index){
-      return <li key={item.id}><a key={"category"+item.id}href={'/categories/'+item.id} id={item.id} onClick={this.showCategory}>{item.name}</a></li>
+		var Content = this.state.index.map(function(item,index){
+      return (
+      <li key={item.id}>
+      	<a key={"category"+item.id}href={'/categories/'+item.id} id={item.id} onClick={this.showCategory}>{item.name}
+				</a>
+  		</li>
+  		)
 		}.bind(this));
 		}
 		else{
-			var List = this.state.videoIndex.map(function(video, index){
-				return <div className="video-thumb">
-					<a key={video.id} href={'/categories/'+video.category_id+'/videos/'+video.id}><img key={"vid"+video.id+"Img"} src={video.thumbnail} alt="video image" /></a>
+			var Content = this.state.videoIndex.map(function(video, index){
+				return (
+				<div className="video-thumb" >
+					<a onClick={this.showVideo} id={video.id} key={video.id} href={'/categories/'+video.category_id+'/videos/'+video.id} >
+						<img key={"vid"+video.id+"Img"} src={video.thumbnail} alt="video image" />
+					</a>
 
-					<a key={"vid"+video.id+"Title"} href={'/categories/'+video.category_id+'/videos/'+video.id}><p>{video.title.substring(0,20)+"..."}</p></a>
+					<a onClick={this.showVideo} id={video.id} key={"vid"+video.id+"Title"} href={'/categories/'+video.category_id+'/videos/'+video.id} ><p>{video.title.substring(0,20)+"..."}</p></a>
 				</div>
-			})
+				)
+			}.bind(this));
 		}
 		return (
-			<div>{List}</div>
+			<div>
+				<div>{Content}</div>
+			</div>
 		);
+		}
+		else{
+			return (
+				// <div> {this.state.video.title} 
+				<div>
+				<Video ytId={this.state.video.yt_id} title={this.state.video.title} likes={this.state.video.likes} dislikes={this.state.video.dislikes} categoryId={this.state.videoCategory.id} category={this.state.videoCategory.name} />
+				</div>
+				// would like to know if i can simply pass in an object rather than extract each individual attribute and have so many props..
+				)
+		}
 	}
 });
