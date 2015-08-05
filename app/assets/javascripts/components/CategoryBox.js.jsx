@@ -69,10 +69,12 @@ var CategoryBox = React.createClass({
 		if(this.state.categoryId === null){
 		var Content = this.state.index.map(function(item,index){
       return (
+      	<div className="category-item">
       <li key={item.id}>
       	<a key={"category"+item.id}href={'/categories/'+item.id} id={item.id} onClick={this.showCategory}>{item.name}
 				</a>
   		</li>
+  		</div>
   		)
 		}.bind(this));
 		}
@@ -92,7 +94,9 @@ var CategoryBox = React.createClass({
 		return (
 			<div>
 				<SearchBar />
+				<ul>
 				<div>{Content}</div>
+				</ul>
 			</div>
 		);
 		}

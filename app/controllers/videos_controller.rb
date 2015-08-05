@@ -17,13 +17,13 @@ class VideosController < ApplicationController
 		@video = Video.new
 	end
 	
-	def edit
-		p "*" * 100
-		p params
-		@category = Category.find(params[:category_id])
-		@video = Video.find(params[:id])
+	# def edit
+	# 	p "*" * 100
+	# 	p params
+	# 	@category = Category.find(params[:category_id])
+	# 	@video = Video.find(params[:id])
 
-	end
+	# end
 
 	def create
 		@category = Category.find(params[:category_id])
@@ -44,24 +44,24 @@ class VideosController < ApplicationController
 	end
 
 
-	def update
-		p "*" * 100
-		p params
-		@video = Video.find(params[:id])
-		@video.update_attributes(video_params)
-		p "this is the video category now #{params[:video][:category_id]}"
-	end
+	# def update
+	# 	p "*" * 100
+	# 	p params
+	# 	@video = Video.find(params[:id])
+	# 	@video.update_attributes(video_params)
+	# 	p "this is the video category now #{params[:video][:category_id]}"
+	# end
 
-	def destroy
-		p"*" * 100
-		p params
-		p"*" * 100
-		@video = Video.find(params[:id])
-		@category = @video.category
-		@video.destroy
+	# def destroy
+	# 	p"*" * 100
+	# 	p params
+	# 	p"*" * 100
+	# 	@video = Video.find(params[:id])
+	# 	@category = @video.category
+	# 	@video.destroy
 		
-		redirect_to category_path(@category)
-	end
+	# 	redirect_to category_path(@category)
+	# end
 
 	def search
 		p params

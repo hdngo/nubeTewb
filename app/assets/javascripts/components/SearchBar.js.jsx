@@ -64,7 +64,7 @@ var SearchBar = React.createClass({
 						<img src={video.snippet.data.thumbnails.default.url} />
 					</a>
 
-					<a href={video.id} ytId={video.id} onClick={this.showResult}><p>{video.snippet.data.title}</p></a>
+					<a href={video.id} ytId={video.id} onClick={this.showResult}><p>{video.snippet.data.title.substring(0,20)+"..."}</p></a>
 				</div>
 			}.bind(this));
 		}

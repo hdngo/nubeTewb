@@ -16,7 +16,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
 	gem 'dotenv-rails'
-
+	gem 'rspec-rails'
 
   gem 'web-console', '~> 2.0'
 end

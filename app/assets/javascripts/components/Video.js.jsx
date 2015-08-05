@@ -4,7 +4,7 @@ var Video = React.createClass({
 			if(this.props.categories){
 			return(
 
-			<div class="body-div">
+			<div className="video-content">
 			<p></p>
 				<iframe width="560" height="315" src={"https://www.youtube.com/embed/" + this.props.ytId } frameborder="0" allowfullscreen></iframe>
 				<AddVideoForm categories={this.props.categories} ytId={this.props.ytId}/>
@@ -16,7 +16,7 @@ var Video = React.createClass({
 
 		else{
 			return(
-			<div class="body-div">
+			<div className="video-content">
 			<p></p>
 				<iframe width="560" height="315" src={"https://www.youtube.com/embed/" + this.props.ytId } frameborder="0" allowfullscreen></iframe>
 
@@ -26,10 +26,7 @@ var Video = React.createClass({
 				
 				<p>{'Listed under ' +this.props.category}</p>
 				<h4>Description:</h4>
-				<p>{this.props.description}</p>
-
-
-				<BackLink link='/categories' text="Back to Categories" />	
+				<p className="vid-description">{this.props.description}</p>
 
 			</div>
 		)
