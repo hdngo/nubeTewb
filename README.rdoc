@@ -1,8 +1,8 @@
 == README
 
-== Demo (Coming Soon)
+== Demo 
 
-The video should still be easy to follow on 1.5x speed!
+The [video](https://www.youtube.com/watch?v=F07X98YysR8) should still be easy to follow on 1.5x speed!
 
 Timeline:
 * 00:00 - 05:25 Intro
