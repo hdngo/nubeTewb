@@ -1,6 +1,6 @@
 == README
 
-Getting started with nubeTewb
+== Getting started with nubeTewb
 
 Demo (Coming Soon)
 
@@ -29,7 +29,7 @@ Demo (Coming Soon)
 * Starting up the server
 	Subject to change. In your terminal, simply navigate over to the appropriate folder where you've cloned the project and run <tt>bundle exec rails s</tt> which should start up your server on Port:3000.
 
-Contribute!
+== Contribute!
 
 There are a lot of features that can be added to this project. 
 
