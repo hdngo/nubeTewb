@@ -1,8 +1,17 @@
 == README
 
-== Getting started with nubeTewb
+== Demo (Coming Soon)
 
-Demo (Coming Soon)
+The video should still be easy to follow on 1.5x speed!
+
+Timeline:
+* 00:00 - 05:25 Intro
+* 05:25 - 13:04 Demoing the App
+* 13:04 - 25:38 Using Rails w/Youtube's API for the back-end
+* 25:38 - 52:27 Using React & AJAX for the front-end
+* 52:27 - 55:05 Thoughts on contributions and Reflection 
+
+== Getting started with nubeTewb
 
 
 * Current Ruby version: 2.2.1
