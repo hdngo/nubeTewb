@@ -3,9 +3,11 @@ var Video = React.createClass({
 		if(!this.props.channel){
 			if(this.props.categories){
 			return(
+
 			<div class="body-div">
+			<p></p>
 				<iframe width="560" height="315" src={"https://www.youtube.com/embed/" + this.props.ytId } frameborder="0" allowfullscreen></iframe>
-				<AddVideoForm categories={this.props.categories}/>
+				<AddVideoForm categories={this.props.categories} ytId={this.props.ytId}/>
 			</div>
 		)
 		}

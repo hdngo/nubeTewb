@@ -26,11 +26,12 @@ class VideosController < ApplicationController
 	end
 
 	def create
-		@category = Category.find(params[:video][:category_id])
-		@yt_vid_id = params[:video][:yt_vid_id]
+		@category = Category.find(params[:category_id])
+		@yt_vid_id = params[:yt_vid_id]
 		@yt_vid = Yt::Video.new id: @yt_vid_id
-		@category.videos.create(grab_params(@yt_vid))
-		redirect_to category_path(@category)
+		new_vid = @category.videos.create(grab_params(@yt_vid))
+			render json: {message: "video uploaded!"}
+		# redirect_to category_path(@category)
 		
 	end
 
@@ -80,7 +81,7 @@ class VideosController < ApplicationController
 		p "you made it to the route"
 		p "still here"
 
-		@categories = Category.order(:name)
+		@categories = Category.all
 		@video = Yt::Video.new id: params[:vid_id]
 		# @video_id = params[:vid_id]
 		# @video_data = {yt_id: @video.id, title: @video.title, channel: @video.channel_title, likes: @video.like_count, dislikes: @video.dislike_count, description: @video.description}
