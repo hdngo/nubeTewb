@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'rails-api'
 gem 'react-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug'
@@ -20,4 +21,6 @@ group :development, :test do
 
   gem 'web-console', '~> 2.0'
 end
+
+ruby "2.2.1"
 

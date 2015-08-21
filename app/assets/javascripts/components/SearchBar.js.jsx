@@ -84,6 +84,11 @@ var SearchBar = React.createClass({
 		}
 		else{
 		return (
+			//if(this.state.parks === null){
+    // content = list with a props of this.state.parks)
+  		//}else{
+  	//		content = login stuff
+  	//	}
 
 			<div>
 				<BackLink link='/categories' text="Back to Categories" />
