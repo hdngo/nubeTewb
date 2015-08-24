@@ -1,5 +1,15 @@
 #nubeTewb
 
+##Description 
+nubeTewb is a video archive platform where users may browse through YouTube dance tutorials based on select categories. It also allows users to search for videos on YouTube and add them into existing categories.
+
+[View it on Heroku!](https://nube-Tewb.herokuapp.com)
+
+##Technologies Used
+  * Backend: Rails API, Ruby
+  * Frontend: Javascript (jQuery, AJAX, React), HTML, CSS
+  * Other: react-rails Ruby gem, YouTube API (yt/Fullscreen Ruby gem)
+
 ## Demo 
 
 The [video](https://www.youtube.com/watch?v=F07X98YysR8) should still be easy to follow on 1.5x speed!
@@ -10,6 +20,25 @@ The [video](https://www.youtube.com/watch?v=F07X98YysR8) should still be easy to
 * 13:04 - 25:38 Using Rails w/Youtube's API for the back-end
 * 25:38 - 52:27 Using React & AJAX for the front-end
 * 52:27 - 55:05 Thoughts on contributions and Reflection 
+
+##User Stories
+  * A user can view the the list of dance tutorial video categories.
+  * A user can view the tutorial videos for a particular dance category.
+  * A user can search YouTube for other videos.
+  * A user can add a YouTube video from his/her search to an existing video category.
+
+##Challenges I faced
+  * Abstracting our React components
+  * Occasional YouTube API queries
+  * Dealing with nested Rails resources
+  
+##Next Steps
+  * Implement user approval system for adding new videos
+  * Add like/dislike feature
+  * Add video removal feature
+  * Remove previous page content for all pages
+  * Add user accounts
+  * Implement video upload from computer
 
 ## Getting started with nubeTewb
 
@@ -42,11 +71,11 @@ The [video](https://www.youtube.com/watch?v=F07X98YysR8) should still be easy to
 
 There are a lot of features that can be added to this project. 
 
-*For example, there are currently no features for adding new categories or editing/updating existing categories/videos. 
+* For example, there are currently no features for adding new categories or editing/updating existing categories/videos. 
 
-*A second major component could involve implementing an approval system for videos so that users can't simply fetch any old YouTube video and save it in the archives.
+* A second major component could involve implementing an approval system for videos so that users can't simply fetch any old YouTube video and save it in the archives.
 
-*In regards to styling, ideas are more than welcome, but please discuss them with me before you implement any changes!
+* In regards to styling, ideas are more than welcome, but please discuss them with me before you implement any changes!
 
 
 Please feel free to use a different markup language if you do not plan to run
